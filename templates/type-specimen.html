@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Type specimens</title>
+<style>
+  body { margin: 0; padding: 28px; background: #1b1b1b; color: #ddd; font: 14px/1.4 system-ui, sans-serif; }
+  main { display: flex; gap: 24px; align-items: flex-start; }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .card { position: relative; width: 440px; height: 550px; overflow: hidden; box-sizing: border-box; padding: 34px; }
+  .n { position: absolute; right: 18px; top: 16px; width: 34px; height: 34px; border-radius: 17px; background: #f2c230;
+       color: #111; font: 700 18px/34px system-ui, sans-serif; text-align: center; }
+  .title { font-size: 64px; line-height: .95; margin: 0 0 22px; letter-spacing: -.01em; overflow-wrap: anywhere; }
+  .sub { font-size: 21px; line-height: 1.3; margin: 0 0 18px; }
+  .body { font-size: 14.5px; line-height: 1.5; margin: 0 0 18px; max-width: 30em; }
+  .nums { font-size: 26px; margin: 0 0 14px; }
+  .tr { font-size: 15px; margin: 0; opacity: .9; }
+  .cta { position: absolute; left: 34px; bottom: 30px; font-size: 16px; font-weight: 700; }
+  figcaption { color: #aaa; max-width: 440px; }
+  figcaption b { color: #eee; }
+</style>
+</head>
+<body data-wait>
+<main id="m"></main>
+<script>
+(async () => {
+  const P = new URLSearchParams(location.search);
+  const specFile = P.get('spec') || 'specimens.js';
+  await new Promise((ok, fail) => { const s = document.createElement('script'); s.src = specFile; s.onload = ok; s.onerror = () => fail(new Error(`no ${specFile}: deal.py deal type writes it`)); document.head.appendChild(s); });
+  const SUBSETS = {
+    latin: 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
+    'latin-ext': 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
+  };
+  const hex = (k, d) => '#' + (P.get(k) || d).replace(/^#/, '');
+  const bg = hex('bg', 'f1ede4'), ink = hex('ink', '1a1a1a'), accent = hex('accent', 'c43c1e');
+  const title = P.get('title') || (window.SPEC.title || 'Headline');
+  const sub = P.get('sub') || 'Second read: date, place, who';
+  const cta = P.get('cta') || '';
+  const jobs = [];
+  function faces(r) {
+    if (!r) return;
+    const subs = r.subsets || ['latin', 'latin-ext'], ranged = subs.length > 1;
+    if (r.files) { for (const [w, url] of Object.entries(r.files)) jobs.push(new FontFace(r.family, `url(../${url})`, { weight: w === 'var' ? '100 900' : String(w) })); return; }
+    for (const sub of subs) {
+      const range = ranged ? { unicodeRange: SUBSETS[sub] } : {};
+      if (r.variable) jobs.push(new FontFace(r.family, `url(https://cdn.jsdelivr.net/npm/@fontsource-variable/${r.pkg}@${r.varVersion || r.version}/files/${r.pkg}-${sub}-${r.variable}-normal.woff2)`, { ...range, weight: r.axes?.wght ? `${r.axes.wght[0]} ${r.axes.wght[1]}` : '100 900' }));
+      else for (const w of r.weights || [400]) jobs.push(new FontFace(r.family, `url(https://cdn.jsdelivr.net/npm/@fontsource/${r.pkg}@${r.version}/files/${r.pkg}-${sub}-${w}-normal.woff2)`, { ...range, weight: String(w) }));
+    }
+  }
+  const m = document.getElementById('m');
+  window.SPEC.pairings.forEach((p, i) => {
+    const d = p.roles.display, t = p.roles.text || d;
+    faces(d); if (t !== d) faces(t);
+    const st = p.setup?.display || {};
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<div class="card" style="background:${bg};color:${ink}">
+      <div class="n">${i + 1}</div>
+      <h1 class="title" style="font-family:'${d.family}';font-weight:${st.wght || (d.weights ? Math.max(...d.weights) : 700)}">${title}</h1>
+      <p class="sub" style="font-family:'${t.family}';font-weight:${t.weights?.includes(700) ? 700 : 400}">${sub}</p>
+      <p class="body" style="font-family:'${t.family}'">Body copy reads like this: short lines, easy spacing. At the right measure the eye asks for two more lines without tiring.</p>
+      <p class="nums" style="font-family:'${d.family}';color:${accent}">0123456789 · 14.11 · 21.00</p>
+      <p class="tr" style="font-family:'${t.family}'">ÀÉÎÕÜ àéîõü · ŁŘŐ · ĞİŞ ğış</p>
+      ${cta ? `<div class="cta" style="font-family:'${t.family}';color:${accent}">${cta}</div>` : ''}
+    </div>
+    <figcaption><b>${i + 1} · ${p.id}</b> · ${d.family}${t !== d ? ' + ' + t.family : ''}<br>${p.why || ''}</figcaption>`;
+    m.appendChild(fig);
+  });
+  jobs.forEach((f) => document.fonts.add(f));
+  await Promise.all(jobs.map((f) => f.load().catch(() => null)));
+  await document.fonts.ready;
+  document.body.dataset.ready = '1';
+})();
+</script>
+</body>
+</html>

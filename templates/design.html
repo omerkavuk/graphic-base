@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design</title>
+<script>
+// ============================== DESIGN (edit this block) ==============================
+// The design card in code. Every value here comes from the card in STATE.md; change the card first, then this.
+// KIT/templates/HELPERS.md explains every field and the engine's classes and variables.
+const DESIGN = {
+  title: 'Working title',
+  purpose: 'brand',                 // brand · editorial · event
+  lang: 'en',                     // the piece's language (BCP 47): hyphenation, number format, the letters checked
+  // Every size this piece ships in. unit 'px' (screen) or 'mm' (print: trim size; bleed added around it).
+  // safe: what stays clear of the trim edge, as a share of the width (screen) or in mm (print); per side or one value.
+  views: [
+    { id: 'post', label: 'Post 4:5', w: 1080, h: 1350, unit: 'px', safe: 0.06 },
+    // { id: 'a5', label: 'A5 flyer', w: 148, h: 210, unit: 'mm', bleed: 3, safe: 5, dpi: 300 },
+  ],
+  // Roles, never raw colours in the markup: ground, ink, accent, and any others the card names (muted, line, paper…).
+  palette: { ground: '#d9d9d9', ink: '#111111', accent: '#6b6b6b' },   // placeholder greys: replace from the card
+  // Type roles from tools/fonts.py role <id> or the dealt pairings: { family, pkg, version, weights, subsets }.
+  // Local files: { family, files: { 400: 'fonts/x-400.woff2' } }. null = the system fallback (never in a final).
+  type: {
+    display: null,
+    text: null,
+  },
+  // Strings every role must set with real glyphs (checked by make.py): the headline and a line of the language's special letters at least.
+  check: { strings: ['ÀÉÎÕÜ àéîõü ŁŘŐ ĞİŞ ğış'] },
+};
+// ============================== END DESIGN ==============================
+</script>
+<style>
+/* ============================== STYLE (edit) ==============================
+   Sizes in var(--u): 1 % of the trim width, so a layout holds at every size of the same shape.
+   Colours only through the palette variables: var(--ground), var(--ink), var(--accent), var(--<role>).
+   Fonts through var(--display) and var(--text). Each view is a <section class="view" data-view="<id>">;
+   .safe is the box inside the safe margins; .bleed reaches the bleed edge (print). */
+
+.view { background: var(--ground); color: var(--ink); font-family: var(--text); }
+
+/* EXAMPLE: delete with the example section below, before the first stills */
+.ex-head { font-family: var(--display); font-size: calc(var(--u) * 11); line-height: .95; margin: 0; }
+.ex-body { font-size: calc(var(--u) * 3.4); line-height: 1.35; max-width: 32em; margin: calc(var(--u) * 4) 0 0; }
+.ex-cta { position: absolute; left: 0; bottom: 0; font-size: calc(var(--u) * 3); color: var(--accent); font-weight: 700; }
+</style>
+</head>
+<body>
+<!-- ============================== VIEWS (edit): one section per view id ============================== -->
+
+<!-- EXAMPLE: the engine's grammar only. Delete it (and the .ex-* rules) before the first stills; build the card's design. -->
+<section class="view" data-view="post" data-example>
+  <div class="safe">
+    <h1 class="ex-head" data-role="headline">Headline here</h1>
+    <p class="ex-body" data-role="body">Body copy is the second read. Sizes in var(--u), colours through the palette roles.</p>
+    <div class="ex-cta" data-role="cta">Call to action</div>
+  </div>
+</section>
+
+<!-- ============================== ENGINE (do not edit) ============================== -->
+<style>
+  :root { --u: 1px; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #2a2a2a; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;
+         font-kerning: normal; font-variant-ligatures: common-ligatures; }
+  .view { position: relative; overflow: hidden; box-sizing: border-box; flex: none; }
+  .view *, .view *::before, .view *::after { box-sizing: border-box; }
+  .view .safe { position: absolute; top: var(--safe-t); right: var(--safe-r); bottom: var(--safe-b); left: var(--safe-l); }
+  .view .trim { position: absolute; inset: var(--bleed); }
+  .view .bleed { position: absolute; inset: 0; }
+  .view img { display: block; }
+  body.gb-capture .view { display: none; }
+  body.gb-capture .view.gb-on { display: block; }
+  body.gb-capture { background: transparent; }
+  body.gb-browse { display: flex; flex-wrap: wrap; gap: 48px; padding: 48px; align-items: flex-start; }
+  .gb-card { display: flex; flex-direction: column; gap: 10px; color: #ddd; font: 13px/1.3 system-ui, sans-serif; }
+  .gb-frame { position: relative; overflow: hidden; outline: 1px solid #555; }
+  .gb-frame > .view { transform-origin: 0 0; }
+  .gb-guides .gb-g { position: absolute; pointer-events: none; outline: 1px dashed rgba(0, 200, 255, .8); }
+  .gb-guides .gb-trimline { position: absolute; pointer-events: none; outline: 1px solid rgba(255, 0, 140, .8); }
+  .gb-sheet { position: relative; overflow: hidden; break-after: page; page-break-after: always; background: #fff; }
+  .gb-sheet:last-child { break-after: auto; page-break-after: auto; }
+  body.gb-wire .view { filter: grayscale(1) contrast(.85); }
+  body.gb-wire .view img { opacity: 0; }
+  body.gb-wire .view :has(> img) { background: repeating-linear-gradient(45deg, #cdcdcd 0 6px, #e1e1e1 6px 12px) !important; }
+  .gb-chart text { font-family: var(--text); }
+</style>
+<script>
+(() => {
+  const P = new URLSearchParams(location.search);
+  const capture = P.has('capture');
+  const MM = 96 / 25.4;                                   // CSS px per mm
+  const TYPE_SUBSETS = {
+    latin: 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
+    'latin-ext': 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
+  };
+  const FALLBACK = { display: 'Georgia, "Times New Roman", serif', text: 'Georgia, "Times New Roman", serif',
+                     mono: 'ui-monospace, Menlo, Consolas, monospace' };
+
+  function sides(v, unitPx) {                             // safe: number or {top,right,bottom,left}
+    const s = v.safe ?? 0, o = typeof s === 'number' ? { top: s, right: s, bottom: s, left: s } : s;
+    const k = v.unit === 'mm' ? MM : unitPx;              // mm, or a share of the width
+    return ['top', 'right', 'bottom', 'left'].map((side) => (o[side] ?? 0) * k);
+  }
+
+  function geometry(v) {
+    const mm = v.unit === 'mm';
+    const bleed = mm ? (v.bleed ?? 0) * MM : 0;
+    const tw = mm ? v.w * MM : v.w, th = mm ? v.h * MM : v.h;
+    const [st, sr, sb, sl] = sides(v, tw);
+    return { mm, bleed, tw, th, W: tw + 2 * bleed, H: th + 2 * bleed, safe: [st + bleed, sr + bleed, sb + bleed, sl + bleed] };
+  }
+
+  function sizeView(el, v) {
+    const g = geometry(v);
+    Object.assign(el.style, { width: `${g.W}px`, height: `${g.H}px` });
+    const set = (k, x) => el.style.setProperty(k, x);
+    set('--u', `${g.tw / 100}px`); set('--bleed', `${g.bleed}px`);
+    set('--trim-w', `${g.tw}px`); set('--trim-h', `${g.th}px`);
+    ['t', 'r', 'b', 'l'].forEach((k, i) => set(`--safe-${k}`, `${g.safe[i]}px`));
+    return g;
+  }
+
+  function roleFaces(name, r) {
+    if (!r) return [];
+    const out = [], subs = r.subsets || ['latin', 'latin-ext'], ranged = subs.length > 1;
+    for (const style of r.styles || ['normal']) {
+      if (r.files) { for (const [w, url] of Object.entries(r.files)) out.push([r.family, url, { style, weight: w === 'var' ? '100 900' : String(w) }]); continue; }
+      for (const sub of subs) {
+        const range = ranged ? { unicodeRange: TYPE_SUBSETS[sub] } : {};
+        if (r.variable) {
+          out.push([r.family, `https://cdn.jsdelivr.net/npm/@fontsource-variable/${r.pkg}@${r.varVersion || r.version}/files/${r.pkg}-${sub}-${r.variable}-${style}.woff2`,
+            { style, ...range, weight: r.axes?.wght ? `${r.axes.wght[0]} ${r.axes.wght[1]}` : '100 900' }]);
+        } else for (const w of r.weights || [400]) {
+          out.push([r.family, `https://cdn.jsdelivr.net/npm/@fontsource/${r.pkg}@${r.version}/files/${r.pkg}-${sub}-${w}-${style}.woff2`,
+            { style, ...range, weight: String(w) }]);
+        }
+      }
+    }
+    return out;
+  }
+
+  async function loadType(T) {
+    const root = document.documentElement.style;
+    const jobs = [];
+    for (const [name, r] of Object.entries(T || {})) {
+      root.setProperty(`--${name}`, r ? `"${r.family}", ${FALLBACK[name] || FALLBACK.text}` : (FALLBACK[name] || FALLBACK.text));
+      for (const [family, url, desc] of roleFaces(name, r)) {
+        const f = new FontFace(family, `url(${url})`, desc);
+        document.fonts.add(f);
+        jobs.push(f.load().catch((e) => { throw new Error(`type ${name} "${family}" did not load ${url} (${e?.message || e})`); }));
+      }
+    }
+    if (!T?.display) root.setProperty('--display', FALLBACK.display);
+    if (!T?.text) root.setProperty('--text', FALLBACK.text);
+    await Promise.all(jobs);
+    await document.fonts.ready;
+  }
+
+  function palette(p) {
+    for (const [k, v] of Object.entries(p || {})) document.documentElement.style.setProperty(`--${k}`, v);
+  }
+
+  async function images(scope) {
+    const waits = [];
+    for (const img of scope.querySelectorAll('img')) waits.push(img.decode().catch(() => { throw new Error(`image did not load: ${img.getAttribute('src')}`); }));
+    for (const el of scope.querySelectorAll('*')) {
+      const bg = getComputedStyle(el).backgroundImage;
+      for (const m of bg.matchAll(/url\("?([^")]+)"?\)/g)) {
+        const im = new Image(); im.src = m[1];
+        waits.push(im.decode().catch(() => { throw new Error(`background image did not load: ${m[1]}`); }));
+      }
+    }
+    await Promise.all(waits);
+  }
+
+  // Press sheets: the trim + bleed page sits inside a slug that carries crop marks and a job line (print=1&marks=1).
+  const SLUG = 10, MARK_LEN = 5;                           // mm
+  function pageMM(v, marks) {
+    if (v.unit !== 'mm') return { w: v.w / MM, h: v.h / MM, slug: 0, bleed: 0 };   // a screen view as a PDF page (a carousel)
+    const b = v.bleed ?? 0, s = marks ? SLUG : 0;
+    return { w: v.w + 2 * b + 2 * s, h: v.h + 2 * b + 2 * s, slug: s, bleed: b };
+  }
+  function cropMarks(sec, v, g, pm, host, label) {
+    const s = pm.slug * MM, b = pm.bleed * MM, L = MARK_LEN * MM, W = pm.w * MM, H = pm.h * MM;
+    Object.assign(sec.style, { position: 'absolute', left: `${s}px`, top: `${s}px` });
+    const x0 = s + b, x1 = s + b + g.tw, y0 = s + b, y1 = s + b + g.th;   // the trim lines
+    const gap = s - L;                                                    // marks stop at the bleed edge, never inside it
+    const lines = [
+      [x0, gap, x0, s], [x1, gap, x1, s], [x0, H - s, x0, H - gap], [x1, H - s, x1, H - gap],   // vertical, top and bottom
+      [gap, y0, s, y0], [gap, y1, s, y1], [W - s, y0, W - gap, y0], [W - s, y1, W - gap, y1],   // horizontal, left and right
+    ];
+    const ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('width', W); svg.setAttribute('height', H);
+    Object.assign(svg.style, { position: 'absolute', left: 0, top: 0, pointerEvents: 'none' });
+    for (const [a, c, d, e] of lines) {
+      const l = document.createElementNS(ns, 'line');
+      Object.entries({ x1: a, y1: c, x2: d, y2: e, stroke: '#000', 'stroke-width': 0.25 * 96 / 72 }).forEach(([k, val]) => l.setAttribute(k, val));
+      svg.appendChild(l);
+    }
+    const t = document.createElementNS(ns, 'text');
+    Object.entries({ x: x0, y: H - gap / 2, 'font-size': 6 * 96 / 72, 'font-family': 'Arial, Helvetica, sans-serif', fill: '#000' }).forEach(([k, val]) => t.setAttribute(k, val));
+    t.textContent = `${DESIGN.title} · ${v.label || v.id}${label ? ' · ' + label : ''} · ${v.w}×${v.h} mm · ${pm.bleed} mm bleed`;
+    svg.appendChild(t);
+    host.appendChild(svg);
+  }
+
+  // ---- charts: <div data-chart="<key>"> drawn from DESIGN.data[key] as SVG in the page's own type and palette ----
+  // { type: 'bar' | 'hbar' | 'line', items: [{ label, value }], series: [{ name, values: [..] }] (line), labels: [..] (line),
+  //   highlight: '<label or series name>', unit: '%', decimals: 0, max: <number> }
+  function fmtNum(x, d, unit) { return (+x).toLocaleString(DESIGN.lang || 'en', { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }) + (unit || ''); }
+  function drawCharts(scope) {
+    const ns = 'http://www.w3.org/2000/svg';
+    for (const el of scope.querySelectorAll('[data-chart]')) {
+      const c = (DESIGN.data || {})[el.dataset.chart];
+      if (!c) throw new Error(`data-chart="${el.dataset.chart}" has no entry in DESIGN.data`);
+      const W = el.clientWidth, H = el.clientHeight, fs = parseFloat(getComputedStyle(el).fontSize) || 16;
+      if (!W || !H) throw new Error(`chart ${el.dataset.chart}: give its box a width and a height`);
+      const svg = document.createElementNS(ns, 'svg');
+      svg.setAttribute('class', 'gb-chart'); svg.setAttribute('width', W); svg.setAttribute('height', H);
+      const add = (tag, at, text) => { const n = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(at)) n.setAttribute(k, v); if (text != null) n.textContent = text; svg.appendChild(n); return n; };
+      const hi = c.highlight, on = 'var(--accent)', off = 'var(--chart-muted, var(--rule, #9a9a9a))', ink = 'var(--ink)';
+      if (c.type === 'bar' || c.type === 'hbar') {
+        const items = c.items || [], max = c.max ?? Math.max(...items.map((i) => i.value)) * 1.08;
+        if (c.type === 'bar') {
+          const bottom = fs * 1.8, top = fs * 1.6, slot = W / items.length, bw = slot * 0.62;
+          items.forEach((it, i) => {
+            const h = (H - bottom - top) * it.value / max, x = i * slot + (slot - bw) / 2, y = H - bottom - h;
+            const col = it.label === hi ? on : off;
+            add('rect', { x, y, width: bw, height: Math.max(0, h), fill: col });
+            add('text', { x: x + bw / 2, y: y - fs * 0.45, 'text-anchor': 'middle', 'font-size': fs, fill: ink, 'font-weight': it.label === hi ? 700 : 400 }, fmtNum(it.value, c.decimals, c.unit));
+            add('text', { x: x + bw / 2, y: H - fs * 0.45, 'text-anchor': 'middle', 'font-size': fs * 0.9, fill: ink }, it.label);
+          });
+          add('line', { x1: 0, x2: W, y1: H - bottom, y2: H - bottom, stroke: ink, 'stroke-width': Math.max(1, fs * 0.06) });
+        } else {
+          const labelW = Math.max(...items.map((i) => String(i.label).length)) * fs * 0.55 + fs, valW = fs * 4;
+          const slot = H / items.length, bh = slot * 0.6;
+          items.forEach((it, i) => {
+            const w = (W - labelW - valW) * it.value / max, y = i * slot + (slot - bh) / 2, col = it.label === hi ? on : off;
+            add('text', { x: labelW - fs * 0.5, y: y + bh / 2 + fs * 0.35, 'text-anchor': 'end', 'font-size': fs * 0.9, fill: ink }, it.label);
+            add('rect', { x: labelW, y, width: Math.max(0, w), height: bh, fill: col });
+            add('text', { x: labelW + w + fs * 0.4, y: y + bh / 2 + fs * 0.35, 'font-size': fs, fill: ink, 'font-weight': it.label === hi ? 700 : 400 }, fmtNum(it.value, c.decimals, c.unit));
+          });
+        }
+      } else if (c.type === 'line') {
+        const labels = c.labels || [], series = c.series || [];
+        const all = series.flatMap((x) => x.values), min = c.min ?? Math.min(0, ...all), max = c.max ?? Math.max(...all) * 1.08;
+        const endLabel = (sr) => `${sr.name} ${fmtNum(sr.values[sr.values.length - 1], c.decimals, c.unit)}`;
+        const left = fs * 0.2, right = Math.max(...series.map((sr) => endLabel(sr).length)) * fs * 0.52 + fs, top = fs, bottom = fs * 1.8;
+        const X = (i) => left + (W - left - right) * (labels.length > 1 ? i / (labels.length - 1) : 0.5);
+        const Y = (v) => top + (H - top - bottom) * (1 - (v - min) / (max - min || 1));
+        add('line', { x1: left, x2: W - right, y1: H - bottom, y2: H - bottom, stroke: ink, 'stroke-width': Math.max(1, fs * 0.06) });
+        labels.forEach((l, i) => { if (i === 0 || i === labels.length - 1 || labels.length <= 8) add('text', { x: X(i), y: H - fs * 0.45, 'text-anchor': i === 0 ? 'start' : i === labels.length - 1 ? 'end' : 'middle', 'font-size': fs * 0.9, fill: ink }, l); });
+        for (const sr of [...series].sort((a, b) => (a.name === hi) - (b.name === hi))) {
+          const col = sr.name === hi ? on : off, wdt = (sr.name === hi ? 0.22 : 0.12) * fs;
+          add('polyline', { points: sr.values.map((v, i) => `${X(i)},${Y(v)}`).join(' '), fill: 'none', stroke: col, 'stroke-width': wdt, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' });
+          const last = sr.values.length - 1;
+          add('circle', { cx: X(last), cy: Y(sr.values[last]), r: wdt * 1.6, fill: col });
+          add('text', { x: X(last) + fs * 0.5, y: Y(sr.values[last]) + fs * 0.35, 'font-size': fs * 0.9, fill: ink, 'font-weight': sr.name === hi ? 700 : 400 }, endLabel(sr));
+        }
+      } else throw new Error(`chart ${el.dataset.chart}: type must be bar, hbar or line`);
+      el.replaceChildren(svg);
+    }
+  }
+
+  const views = DESIGN.views || [];
+  const byId = Object.fromEntries(views.map((v) => [v.id, v]));
+  const sections = [...document.querySelectorAll('section.view')];
+  const want = P.get('view') || views[0]?.id;
+  const pagesOf = (id) => sections.filter((x) => x.dataset.view === id).sort((a, b) => (+a.dataset.page || 1) - (+b.dataset.page || 1));
+  const pageCount = () => Object.fromEntries(views.map((v) => [v.id, pagesOf(v.id).length]));
+
+  function guides(el, g) {                                  // ?guides=1: safe area and trim line, never in a capture
+    el.classList.add('gb-guides');
+    const box = (cls, t, r, b, l) => { const d = document.createElement('div'); d.className = cls; Object.assign(d.style, { top: `${t}px`, right: `${r}px`, bottom: `${b}px`, left: `${l}px` }); el.appendChild(d); };
+    box('gb-g', ...g.safe);
+    if (g.bleed) box('gb-trimline', g.bleed, g.bleed, g.bleed, g.bleed);
+  }
+
+  async function start() {
+    palette(DESIGN.palette);
+    for (const s of sections) {
+      const v = byId[s.dataset.view];
+      if (!v) throw new Error(`section data-view="${s.dataset.view}" has no entry in DESIGN.views`);
+      sizeView(s, v);
+      for (const f of s.querySelectorAll('[data-folio]')) f.textContent = String(+s.dataset.page || 1).padStart(+f.dataset.folio || 1, '0');
+    }
+    await loadType(DESIGN.type);
+    if (P.has('wire')) document.body.classList.add('gb-wire');
+    drawCharts(document);
+    if (capture) {
+      document.body.classList.add('gb-capture');
+      const list = pagesOf(want);
+      if (!list.length) throw new Error(`no section for view "${want}"`);
+      const v = byId[want], g = geometry(v);
+      if (P.has('print')) {                                  // every page of the view, one PDF page each
+        const marks = P.has('marks') && v.unit === 'mm', pm = pageMM(v, marks);
+        const st = document.createElement('style');
+        st.textContent = `@page { size: ${pm.w}mm ${pm.h}mm; margin: 0 } html, body { width: ${pm.w * MM}px; background: #fff }`;
+        document.head.appendChild(st);
+        list.forEach((sec, i) => {
+          const sheet = document.createElement('div'); sheet.className = 'gb-sheet';
+          Object.assign(sheet.style, { width: `${pm.w * MM}px`, height: `${pm.h * MM}px` });
+          document.body.appendChild(sheet); sheet.appendChild(sec); sec.classList.add('gb-on');
+          if (marks) cropMarks(sec, v, g, pm, sheet, list.length > 1 ? `p. ${i + 1}/${list.length}` : '');
+        });
+        await images(document);
+        return { title: DESIGN.title, view: want, pages: list.length, unit: v.unit || 'px', views: views.map((x) => x.id), pageCount: pageCount() };
+      }
+      const page = +(P.get('page') || 1);
+      const s = list.find((x) => (+x.dataset.page || 1) === page);
+      if (!s) throw new Error(`view "${want}" has no page ${page}`);
+      s.classList.add('gb-on');
+      if (P.get('underlay')) {                               // the user's own design under the rebuild, for tracing (never in a final)
+        const u = document.createElement('img');
+        u.src = P.get('underlay');
+        Object.assign(u.style, { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', opacity: P.get('uo') || '0.45', pointerEvents: 'none', zIndex: 9999 });
+        s.appendChild(u);
+      }
+      await images(s);
+      return { title: DESIGN.title, view: want, page, width: Math.round(g.W), height: Math.round(g.H), unit: v.unit || 'px',
+               views: views.map((x) => x.id), pageCount: pageCount(), example: !!document.querySelector('[data-example]') };
+    }
+    document.body.classList.add('gb-browse');                // opened in a browser: every view side by side, scaled to fit
+    for (const s of sections) {
+      const v = byId[s.dataset.view], g = geometry(v), k = Math.min(1, 520 / g.W);
+      const card = document.createElement('div'); card.className = 'gb-card';
+      const frame = document.createElement('div'); frame.className = 'gb-frame';
+      Object.assign(frame.style, { width: `${g.W * k}px`, height: `${g.H * k}px` });
+      s.before(card); frame.appendChild(s); card.appendChild(frame);
+      s.style.transform = `scale(${k})`;
+      const label = document.createElement('div');
+      label.textContent = `${v.label || v.id}${s.dataset.page ? ' · p. ' + s.dataset.page : ''} · ${v.w}×${v.h} ${v.unit || 'px'}`;
+      card.appendChild(label);
+      if (P.has('guides')) guides(s, g);
+    }
+    await images(document);
+    return { title: DESIGN.title, views: views.map((x) => x.id), pageCount: pageCount() };
+  }
+
+  // ---- audit: what make.py measures on the rendered view (text sizes, edges, overlaps, fonts, images) ----
+  function textRect(el) {
+    const r = document.createRange(); r.selectNodeContents(el);
+    const rects = [...r.getClientRects()].filter((q) => q.width > 0.5 && q.height > 0.5);
+    if (!rects.length) return null;
+    const x0 = Math.min(...rects.map((q) => q.left)), y0 = Math.min(...rects.map((q) => q.top));
+    const x1 = Math.max(...rects.map((q) => q.right)), y1 = Math.max(...rects.map((q) => q.bottom));
+    return { x: x0, y: y0, w: x1 - x0, h: y1 - y0, lines: new Set(rects.map((q) => Math.round(q.top))).size };
+  }
+
+  function ownText(el) {
+    return [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
+  }
+
+  function audit() {
+    const s = document.querySelector('section.view.gb-on');
+    if (!s) return { error: 'no view on' };
+    const v = byId[s.dataset.view], g = geometry(v), base = s.getBoundingClientRect();
+    const safe = { x: g.safe[3], y: g.safe[0], x1: g.W - g.safe[1], y1: g.H - g.safe[2] };
+    const texts = [], owners = [];
+    for (const el of s.querySelectorAll('*')) {
+      if (!ownText(el)) continue;
+      const cs = getComputedStyle(el);
+      if (cs.visibility === 'hidden' || cs.display === 'none' || +cs.opacity === 0) continue;
+      const r = textRect(el);
+      if (!r) continue;
+      const box = { x: r.x - base.left, y: r.y - base.top, w: r.w, h: r.h };
+      const fam = cs.fontFamily.split(',')[0].trim().replace(/^["']|["']$/g, '');
+      const text = (el.innerText ?? el.textContent).trim().replace(/\s+/g, ' ');
+      const roleEl = el.closest('[data-role]');
+      const clipper = (() => { for (let p = el.parentElement; p && p !== s.parentElement; p = p.parentElement) { const o = getComputedStyle(p); if (o.overflow !== 'visible' || o.overflowX !== 'visible') return p; } return null; })();
+      let clipped = false;
+      if (clipper && clipper !== s) { const c = clipper.getBoundingClientRect(); clipped = r.x < c.left - 1 || r.y < c.top - 1 || r.x + r.w > c.right + 1 || r.y + r.h > c.bottom + 1; }
+      owners.push({ el, role: roleEl || el });
+      texts.push({
+        i: texts.length, tag: el.tagName.toLowerCase(), role: roleEl?.dataset.role || null, text: text.slice(0, 120),
+        box, px: parseFloat(cs.fontSize), pt: parseFloat(cs.fontSize) * 0.75, weight: cs.fontWeight, family: fam,
+        lineHeight: cs.lineHeight, lines: r.lines, color: cs.color,
+        loaded: document.fonts.check(`${cs.fontStyle} ${cs.fontWeight} 16px "${fam}"`, text.slice(0, 40) || 'a'),
+        offEdge: box.x < -1 || box.y < -1 || box.x + box.w > g.W + 1 || box.y + box.h > g.H + 1,
+        // a line box shorter than the font (line-height under 1) lets the glyph box reach past its element: a quarter
+        // of the size above and below is the font's own air, not a breach
+        outsideSafe: box.x < safe.x - 1 || box.y < safe.y - 1 - parseFloat(cs.fontSize) * 0.25 || box.x + box.w > safe.x1 + 1
+          || box.y + box.h > safe.y1 + 1 + parseFloat(cs.fontSize) * 0.25,
+        clipped, overflowing: el.scrollWidth > el.clientWidth + 2 && cs.overflow !== 'visible',
+        insideTrimMargin: (() => { const m = g.bleed + (g.mm ? 5 * MM : 0.03 * g.tw); return box.x >= m - 1 && box.y >= m - 1 && box.x + box.w <= g.W - m + 1 && box.y + box.h <= g.H - m + 1; })(),
+      });
+    }
+    const touch = [];                                       // text runs of different elements that overlap
+    for (let a = 0; a < texts.length; a++) for (let b = a + 1; b < texts.length; b++) {
+      const A = texts[a].box, B = texts[b].box, ea = owners[a], eb = owners[b];
+      if (ea.el.contains(eb.el) || eb.el.contains(ea.el)) continue;
+      if (ea.role === eb.role) continue;                     // lines of one headline set tight on purpose
+      if (texts[a].px > 0 && texts[b].px > 0) {               // the glyph boxes' own air (line-height under 1) is not a collision
+        const air = 0.2 * Math.max(texts[a].px, texts[b].px);  // the larger face's descent and ascent
+        const iy0 = Math.min(A.y + A.h, B.y + B.h) - Math.max(A.y, B.y);
+        if (iy0 <= air && iy0 > 0) continue;
+      }
+      const ix = Math.min(A.x + A.w, B.x + B.w) - Math.max(A.x, B.x), iy = Math.min(A.y + A.h, B.y + B.h) - Math.max(A.y, B.y);
+      if (ix > 2 && iy > 2) touch.push([a, b]);
+    }
+    const imgs = [...s.querySelectorAll('img')].map((im) => {
+      const r = im.getBoundingClientRect();
+      const inches = (r.width / 96);
+      return { src: im.getAttribute('src'), natural: [im.naturalWidth, im.naturalHeight], shown: [Math.round(r.width), Math.round(r.height)],
+               ppi: inches > 0 ? Math.round(im.naturalWidth / inches) : null };
+    });
+    const strings = (DESIGN.check?.strings || []);
+    const roles = Object.entries(DESIGN.type || {}).map(([name, r]) => ({ name, family: r?.family || null,
+      glyphs: r ? strings.every((t) => document.fonts.check(`16px "${r.family}"`, t)) : false }));
+    return { view: v.id, page: +(s.dataset.page || 1), pages: pagesOf(v.id).length, kind: s.dataset.kind || null, unit: v.unit || 'px', size: [Math.round(g.W), Math.round(g.H)], trim: [v.w, v.h], bleed: v.bleed || 0,
+             dpi: v.dpi || null, safe, texts, touch, imgs, roles, palette: DESIGN.palette,
+             example: s.matches('[data-example]') || !!s.querySelector('[data-example]'),
+             title: DESIGN.title, purpose: DESIGN.purpose };
+  }
+
+  // Contrast: make.py hands a clipped screenshot of one text run back; the page reads its pixels against the text colour.
+  async function contrastOf(dataUrl, color) {
+    const im = new Image(); im.src = dataUrl; await im.decode();
+    const c = document.createElement('canvas'); c.width = im.width; c.height = im.height;
+    const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(im, 0, 0);
+    const d = x.getImageData(0, 0, c.width, c.height).data;
+    const m = color.match(/[\d.]+/g).map(Number), ink = m.slice(0, 3);
+    const lum = (r, g, b) => { const f = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
+    const Lt = lum(...ink), ratios = [];
+    const near = (i) => Math.abs(d[i] - ink[0]) + Math.abs(d[i + 1] - ink[1]) + Math.abs(d[i + 2] - ink[2]) < 60;
+    const bins = new Map();                                  // the most common colour away from the ink: the main ground
+    for (let i = 0; i < d.length; i += 4) {
+      if (near(i)) continue;
+      const k = (d[i] >> 4) << 8 | (d[i + 1] >> 4) << 4 | (d[i + 2] >> 4);
+      bins.set(k, (bins.get(k) || 0) + 1);
+    }
+    if (!bins.size) return null;
+    const top = [...bins.entries()].sort((a, b) => b[1] - a[1])[0][0];
+    const bg = [(top >> 8 & 15) * 16 + 8, (top >> 4 & 15) * 16 + 8, (top & 15) * 16 + 8];
+    const seg = bg.map((v, j) => v - ink[j]), segLen2 = seg.reduce((a, v) => a + v * v, 0) || 1;
+    for (let i = 0; i < d.length; i += 4) {
+      if (near(i)) continue;                                 // the letters themselves
+      const p = [d[i] - ink[0], d[i + 1] - ink[1], d[i + 2] - ink[2]];
+      const t = Math.max(0, Math.min(1, (p[0] * seg[0] + p[1] * seg[1] + p[2] * seg[2]) / segLen2));
+      const off = Math.hypot(p[0] - t * seg[0], p[1] - t * seg[1], p[2] - t * seg[2]);
+      if (off < 28 && t < 0.85) continue;                    // an anti-aliased edge between the ink and the ground
+      const Lb = lum(d[i], d[i + 1], d[i + 2]);
+      ratios.push((Math.max(Lt, Lb) + 0.05) / (Math.min(Lt, Lb) + 0.05));
+    }
+    if (ratios.length < 8) return null;
+    ratios.sort((a, b) => a - b);
+    return { worst: +ratios[Math.floor(ratios.length * 0.1)].toFixed(2), median: +ratios[Math.floor(ratios.length / 2)].toFixed(2) };
+  }
+
+  window.GB = { audit, contrastOf, geometry: (id) => geometry(byId[id]), pageMM: (id, marks) => pageMM(byId[id], marks) };
+  window.READY = start();
+  window.READY.catch((e) => { console.error(String(e?.message || e)); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+{
+ "aliases": [
+  {
+   "names": [
+    "vox",
+    "vox explainer",
+    "video essay",
+    "video essayi"
+   ],
+   "styles": [
+    "vox-explainer",
+    "halftone-dossier"
+   ],
+   "family": "papercut-collage",
+   "note": "paper cards, marker circles, a narrator, sourced facts"
+  },
+  {
+   "names": [
+    "kurzgesagt",
+    "in a nutshell"
+   ],
+   "styles": [
+    "iso-infographic"
+   ],
+   "family": "glossy-commercial",
+   "note": "flat vector diorama, soft gradients, one round mascot species; build the flat-vector look on these grammars"
+  },
+  {
+   "names": [
+    "stripe",
+    "linear",
+    "saas launch",
+    "saas"
+   ],
+   "styles": [
+    "iso-infographic"
+   ],
+   "family": "glossy-commercial",
+   "note": "real interface as the star, one accent colour"
+  },
+  {
+   "names": [
+    "ghibli",
+    "studio ghibli",
+    "miyazaki"
+   ],
+   "styles": [
+    "watercolor"
+   ],
+   "family": "anime-cel",
+   "note": "painted skies and backgrounds, cel characters, wind in everything"
+  },
+  {
+   "names": [
+    "spider-verse",
+    "spiderverse",
+    "örümcek-adam",
+    "comic book"
+   ],
+   "styles": [
+    "halftone-dossier",
+    "risograph"
+   ],
+   "family": "handmade-ink",
+   "note": "halftone dots, misregistration, held frames on twos"
+  },
+  {
+   "names": [
+    "hokusai",
+    "ukiyo-e",
+    "ukiyoe"
+   ],
+   "styles": [
+    "woodcut"
+   ],
+   "family": "handmade-ink"
+  },
+  {
+   "names": [
+    "bauhaus",
+    "swiss",
+    "dieter rams"
+   ],
+   "styles": [
+    "swiss"
+   ],
+   "family": "glossy-commercial"
+  },
+  {
+   "names": [
+    "true crime",
+    "netflix documentary",
+    "belgesel",
+    "documentary"
+   ],
+   "styles": [
+    "briefing-board"
+   ],
+   "family": "cinematic-realistic"
+  },
+  {
+   "names": [
+    "the economist",
+    "financial times",
+    "bloomberg",
+    "data journalism"
+   ],
+   "styles": [
+    "dataviz"
+   ],
+   "family": "glossy-commercial"
+  },
+  {
+   "names": [
+    "linocut",
+    "lino cut",
+    "lino print",
+    "linol",
+    "linol baskı",
+    "linoleum",
+    "relief print",
+    "block print",
+    "woodblock print",
+    "baskı resim",
+    "oyma baskı",
+    "ağaç baskı",
+    "printmaking",
+    "gravür baskı"
+   ],
+   "styles": [
+    "woodcut",
+    "engraving"
+   ],
+   "family": "handmade-ink",
+   "note": "black is the block, white is what the knife removed; cuts follow the form; a second colour slightly off register"
+  },
+  {
+   "names": [
+    "dergi",
+    "magazine",
+    "editoryal",
+    "editorial",
+    "kinfolk",
+    "monocle"
+   ],
+   "styles": [
+    "editorial-magazine"
+   ],
+   "family": "editorial",
+   "note": "magazine authority: serif headline, cropped photo, columns"
+  },
+  {
+   "names": [
+    "bauhaus"
+   ],
+   "styles": [
+    "bauhaus"
+   ],
+   "family": "modernist",
+   "note": "primary shapes, geometric sans"
+  },
+  {
+   "names": [
+    "botanik",
+    "botanical",
+    "herbaryum",
+    "doğa tarihi",
+    "natural history"
+   ],
+   "styles": [
+    "botanical-plate"
+   ],
+   "family": "scientific",
+   "note": "specimen plate with Latin labels"
+  },
+  {
+   "names": [
+    "harita",
+    "map",
+    "kartografi",
+    "cartography"
+   ],
+   "styles": [
+    "cartographic"
+   ],
+   "family": "scientific",
+   "note": "the map as layout"
+  },
+  {
+   "names": [
+    "memphis",
+    "80'ler pastel",
+    "sottsass"
+   ],
+   "styles": [
+    "memphis"
+   ],
+   "family": "postmodern",
+   "note": "squiggles and clashing pastels"
+  }
+ ]
+}

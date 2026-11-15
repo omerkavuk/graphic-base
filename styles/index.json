@@ -1,0 +1,1877 @@
+{
+ "source": "styles converted from cinecode's library (lemo-opuscar by LemoLab, MIT, and cinecode's own), plus graphic base's own",
+ "licence": "MIT (styles/LICENSE-lemo-opuscar)",
+ "commit": "d33bdea74eeecde3922b0fbad227f0d3dc7afe75",
+ "note": "The 33 styles graphic base offers. Every one is shown on the style board at once, each with its picture in styles/posters (mood only, never placed in a design); the skill marks its top 3 for the content.",
+ "styles": [
+  {
+   "id": "swiss",
+   "name": "Swiss International Style",
+   "category": "Graphic & Type",
+   "base": "modernist",
+   "essence": "International Typographic Style: a modular grid, one grotesque typeface, one signal colour, objective photography and exact, asymmetric balance.",
+   "uses": [
+    "Corporate reports",
+    "Exhibitions and conferences",
+    "Modernist posters",
+    "Typographic pieces"
+   ],
+   "tags": [
+    "announcement",
+    "architecture",
+    "bold",
+    "brand",
+    "calm",
+    "corporate",
+    "culture",
+    "data",
+    "design-conference",
+    "editorial",
+    "education",
+    "event",
+    "exhibition",
+    "explainer",
+    "grid",
+    "list",
+    "modernist",
+    "poster",
+    "public",
+    "report",
+    "science",
+    "serious",
+    "tech",
+    "technical",
+    "typographic"
+   ],
+   "kind": "design",
+   "family": "modernist",
+   "fit": {
+    "purpose": [
+     "brand",
+     "editorial",
+     "event"
+    ],
+    "content": [
+     "announcement",
+     "report",
+     "data",
+     "explainer",
+     "list"
+    ],
+    "tone": [
+     "serious",
+     "calm",
+     "technical",
+     "bold"
+    ],
+    "sector": [
+     "corporate",
+     "culture",
+     "tech",
+     "science",
+     "public",
+     "education"
+    ]
+   },
+   "source": "graphic-base",
+   "poster": "posters/swiss.jpg"
+  },
+  {
+   "id": "bauhaus",
+   "name": "Bauhaus",
+   "category": "Graphic & Type",
+   "base": "modernist",
+   "source": "graphic-base",
+   "essence": "Circle, square and triangle in red, yellow and blue on white or black, geometric sans serif type, asymmetric balance, bars and rules as structure. Form follows function, with joy.",
+   "uses": [
+    "Event posters",
+    "Exhibitions",
+    "Education",
+    "Brand campaigns",
+    "Covers"
+   ],
+   "tags": [
+    "announcement",
+    "bold",
+    "brand",
+    "campaign",
+    "culture",
+    "design",
+    "education",
+    "event",
+    "exhibition",
+    "geometric",
+    "invitation",
+    "modernist",
+    "playful",
+    "poster",
+    "school",
+    "technical"
+   ],
+   "kind": "design",
+   "family": "modernist",
+   "fit": {
+    "purpose": [
+     "event",
+     "brand"
+    ],
+    "content": [
+     "announcement",
+     "invitation",
+     "campaign"
+    ],
+    "tone": [
+     "bold",
+     "playful",
+     "technical"
+    ],
+    "sector": [
+     "culture",
+     "education",
+     "design"
+    ]
+   },
+   "poster": "posters/bauhaus.jpg"
+  },
+  {
+   "id": "minimal-corporate",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Announcement",
+    "Report",
+    "Data",
+    "Product"
+   ],
+   "tags": [
+    "announcement",
+    "brand",
+    "calm",
+    "corporate",
+    "data",
+    "editorial",
+    "finance",
+    "nonprofit",
+    "people",
+    "product",
+    "public",
+    "report",
+    "serious",
+    "tech"
+   ],
+   "name": "Minimal Corporate",
+   "essence": "Calm authority: a neutral ground, one brand colour used sparingly, generous white space and a precise grid; one message per page.",
+   "kind": "design",
+   "family": "modernist",
+   "base": "modernist",
+   "fit": {
+    "purpose": [
+     "brand",
+     "editorial"
+    ],
+    "content": [
+     "announcement",
+     "report",
+     "data",
+     "product",
+     "people"
+    ],
+    "tone": [
+     "serious",
+     "calm"
+    ],
+    "sector": [
+     "corporate",
+     "nonprofit",
+     "public",
+     "tech",
+     "finance"
+    ]
+   },
+   "poster": "posters/minimal-corporate.jpg"
+  },
+  {
+   "id": "editorial-magazine",
+   "name": "Editorial Magazine",
+   "category": "Editorial & Information",
+   "base": "editorial",
+   "source": "graphic-base",
+   "essence": "A magazine spread's authority on one page: a big serif headline, a strong photograph cropped with intent, columns, a pull quote, rules and folios. Confident white space and a clear reading order.",
+   "uses": [
+    "Reports",
+    "Feature posts",
+    "Covers",
+    "Brand stories",
+    "Interviews"
+   ],
+   "tags": [
+    "brand",
+    "brand-story",
+    "cover",
+    "culture",
+    "editorial",
+    "education",
+    "elegant",
+    "explainer",
+    "feature",
+    "interview",
+    "magazine",
+    "nonprofit",
+    "people",
+    "photography",
+    "public",
+    "quote",
+    "report",
+    "serious",
+    "story",
+    "warm"
+   ],
+   "kind": "design",
+   "family": "editorial",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "brand"
+    ],
+    "content": [
+     "story",
+     "explainer",
+     "report",
+     "people",
+     "quote"
+    ],
+    "tone": [
+     "serious",
+     "elegant",
+     "warm"
+    ],
+    "sector": [
+     "culture",
+     "nonprofit",
+     "public",
+     "education"
+    ]
+   },
+   "poster": "posters/editorial-magazine.jpg"
+  },
+  {
+   "id": "newspaper",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Explainer",
+    "Report",
+    "Data",
+    "Announcement"
+   ],
+   "tags": [
+    "announcement",
+    "data",
+    "editorial",
+    "explainer",
+    "finance",
+    "nonprofit",
+    "public",
+    "report",
+    "science",
+    "serious",
+    "story",
+    "urgent"
+   ],
+   "name": "Newspaper Broadsheet",
+   "essence": "A front page: huge headline across columns, dense text columns, rules, a dateline and one hard-cropped photo or chart.",
+   "kind": "design",
+   "family": "editorial",
+   "base": "editorial",
+   "fit": {
+    "purpose": [
+     "editorial"
+    ],
+    "content": [
+     "explainer",
+     "report",
+     "data",
+     "announcement",
+     "story"
+    ],
+    "tone": [
+     "serious",
+     "urgent"
+    ],
+    "sector": [
+     "public",
+     "nonprofit",
+     "finance",
+     "science"
+    ]
+   },
+   "poster": "posters/newspaper.jpg"
+  },
+  {
+   "id": "mid-century-modern",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Announcement",
+    "Product",
+    "Campaign"
+   ],
+   "tags": [
+    "announcement",
+    "brand",
+    "campaign",
+    "culture",
+    "education",
+    "event",
+    "family",
+    "food",
+    "nostalgic",
+    "playful",
+    "product",
+    "warm"
+   ],
+   "name": "Mid-century Modern",
+   "essence": "Playful geometry with wit: cut-paper shapes, boomerangs and circles in warm faded flat colour, a quirky display word.",
+   "kind": "design",
+   "family": "retro",
+   "base": "retro",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event"
+    ],
+    "content": [
+     "announcement",
+     "product",
+     "campaign"
+    ],
+    "tone": [
+     "warm",
+     "playful",
+     "nostalgic"
+    ],
+    "sector": [
+     "food",
+     "culture",
+     "education",
+     "family"
+    ]
+   },
+   "poster": "posters/mid-century-modern.jpg"
+  },
+  {
+   "id": "risograph",
+   "name": "Risograph Print",
+   "category": "Print & Printmaking",
+   "base": "print-craft",
+   "essence": "A stencil-duplicator print: two or three translucent spot inks overprinted on warm paper, halftone dots, ink grain and plates that never quite line up.",
+   "uses": [
+    "Zines and indie events",
+    "Music and culture posters",
+    "Festivals",
+    "Art prints"
+   ],
+   "tags": [
+    "announcement",
+    "art",
+    "bold",
+    "brand",
+    "campaign",
+    "culture",
+    "education",
+    "event",
+    "festival",
+    "indie",
+    "music",
+    "playful",
+    "poster",
+    "print",
+    "story",
+    "warm",
+    "youth",
+    "zine"
+   ],
+   "kind": "design",
+   "family": "print-craft",
+   "fit": {
+    "purpose": [
+     "event",
+     "brand"
+    ],
+    "content": [
+     "announcement",
+     "campaign",
+     "story"
+    ],
+    "tone": [
+     "playful",
+     "warm",
+     "bold"
+    ],
+    "sector": [
+     "culture",
+     "music",
+     "youth",
+     "education"
+    ]
+   },
+   "source": "graphic-base",
+   "poster": "posters/risograph.jpg"
+  },
+  {
+   "id": "halftone-dossier",
+   "name": "Halftone Dossier",
+   "category": "Print & Printmaking",
+   "base": "print-craft",
+   "essence": "A retro print case file: cream archive paper, overprinted halftone dots in a few flat inks, huge heavy headlines with misregistered shadows, rubber stamps and thick-outlined figures.",
+   "uses": [
+    "Editorial and investigation",
+    "Campaigns",
+    "Retro posters",
+    "News-style posts"
+   ],
+   "tags": [
+    "bold",
+    "brand",
+    "campaign",
+    "culture",
+    "editorial",
+    "explainer",
+    "investigation",
+    "news",
+    "newspaper",
+    "nonprofit",
+    "playful",
+    "politics",
+    "public",
+    "quote",
+    "report",
+    "retro",
+    "story",
+    "urgent"
+   ],
+   "kind": "design",
+   "family": "print-craft",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "brand"
+    ],
+    "content": [
+     "explainer",
+     "story",
+     "campaign",
+     "quote"
+    ],
+    "tone": [
+     "bold",
+     "playful",
+     "urgent"
+    ],
+    "sector": [
+     "public",
+     "nonprofit",
+     "culture"
+    ]
+   },
+   "source": "graphic-base",
+   "poster": "posters/halftone-dossier.jpg"
+  },
+  {
+   "id": "brutalist",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Announcement",
+    "Campaign",
+    "Quote"
+   ],
+   "tags": [
+    "announcement",
+    "bold",
+    "brand",
+    "campaign",
+    "culture",
+    "design",
+    "event",
+    "quote",
+    "tech",
+    "technical",
+    "urgent",
+    "youth"
+   ],
+   "name": "Brutalist",
+   "essence": "Raw and direct: very large hard type, visible grid boxes and labels, black and white with one loud colour.",
+   "kind": "design",
+   "family": "expressive",
+   "base": "expressive",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event"
+    ],
+    "content": [
+     "announcement",
+     "campaign",
+     "quote"
+    ],
+    "tone": [
+     "bold",
+     "urgent",
+     "technical"
+    ],
+    "sector": [
+     "tech",
+     "design",
+     "youth",
+     "culture"
+    ]
+   },
+   "poster": "posters/brutalist.jpg"
+  },
+  {
+   "id": "punk-zine",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Campaign",
+    "Announcement",
+    "Story"
+   ],
+   "tags": [
+    "activism",
+    "announcement",
+    "bold",
+    "brand",
+    "campaign",
+    "event",
+    "music",
+    "playful",
+    "story",
+    "urgent",
+    "youth"
+   ],
+   "name": "Punk Zine Collage",
+   "essence": "Cut and paste: photocopied photos, torn paper, tape and ransom-note letters in black and white with one fluorescent accent.",
+   "kind": "design",
+   "family": "expressive",
+   "base": "expressive",
+   "fit": {
+    "purpose": [
+     "event",
+     "brand"
+    ],
+    "content": [
+     "campaign",
+     "announcement",
+     "story"
+    ],
+    "tone": [
+     "urgent",
+     "bold",
+     "playful"
+    ],
+    "sector": [
+     "music",
+     "youth",
+     "activism"
+    ]
+   },
+   "poster": "posters/punk-zine.jpg"
+  },
+  {
+   "id": "memphis",
+   "name": "Memphis",
+   "category": "Graphic & Type",
+   "base": "expressive",
+   "source": "graphic-base",
+   "essence": "1980s Milan postmodernism: squiggles, confetti, terrazzo, zigzags and grids in clashing pastels with black; geometric solids stacked off-balance; bold playful type.",
+   "uses": [
+    "Parties",
+    "Kids and youth brands",
+    "Festivals",
+    "Pop-ups",
+    "Social posts"
+   ],
+   "tags": [
+    "1980s",
+    "announcement",
+    "birthday",
+    "bold",
+    "brand",
+    "campaign",
+    "culture",
+    "event",
+    "festival",
+    "festive",
+    "food",
+    "invitation",
+    "party",
+    "pastel",
+    "playful",
+    "pop-up",
+    "youth"
+   ],
+   "kind": "design",
+   "family": "expressive",
+   "fit": {
+    "purpose": [
+     "event",
+     "brand"
+    ],
+    "content": [
+     "announcement",
+     "campaign",
+     "invitation"
+    ],
+    "tone": [
+     "playful",
+     "festive",
+     "bold"
+    ],
+    "sector": [
+     "youth",
+     "food",
+     "culture"
+    ]
+   },
+   "poster": "posters/memphis.jpg"
+  },
+  {
+   "id": "vox-explainer",
+   "name": "Paper Explainer Collage",
+   "category": "Evidence Films",
+   "base": "expressive",
+   "essence": "An explainer made of paper: torn cards, cut-out archive photos and documents on a warm desk, a marker circling the detail that matters, bold condensed type on paper strips.",
+   "uses": [
+    "Editorial explainers",
+    "History pieces",
+    "Social carousels",
+    "Reports"
+   ],
+   "source": "cinecode",
+   "tags": [
+    "collage",
+    "culture",
+    "data",
+    "editorial",
+    "education",
+    "explainer",
+    "history",
+    "journalism",
+    "nonprofit",
+    "public",
+    "quote",
+    "report",
+    "serious",
+    "social",
+    "story",
+    "warm"
+   ],
+   "kind": "design",
+   "family": "expressive",
+   "fit": {
+    "purpose": [
+     "editorial"
+    ],
+    "content": [
+     "explainer",
+     "story",
+     "data",
+     "quote"
+    ],
+    "tone": [
+     "serious",
+     "warm"
+    ],
+    "sector": [
+     "public",
+     "nonprofit",
+     "education",
+     "culture"
+    ]
+   },
+   "poster": "posters/vox-explainer.jpg"
+  },
+  {
+   "id": "dataviz",
+   "name": "Data Storytelling",
+   "category": "Information & Keynote",
+   "base": "information",
+   "essence": "A chart that tells a story: real data drawn in pencil-like marks on cream paper, one series in red, the rest in blue-grey, handwritten notes pinned to the numbers that matter.",
+   "uses": [
+    "Reports and infographics",
+    "Data posts",
+    "Annual reports",
+    "Research summaries"
+   ],
+   "tags": [
+    "annual-report",
+    "calm",
+    "chart",
+    "data",
+    "editorial",
+    "environment",
+    "explainer",
+    "finance",
+    "infographic",
+    "nonprofit",
+    "public",
+    "report",
+    "research",
+    "science",
+    "serious",
+    "statistics",
+    "technical"
+   ],
+   "kind": "design",
+   "family": "information",
+   "fit": {
+    "purpose": [
+     "editorial"
+    ],
+    "content": [
+     "data",
+     "report",
+     "explainer"
+    ],
+    "tone": [
+     "serious",
+     "calm",
+     "technical"
+    ],
+    "sector": [
+     "science",
+     "public",
+     "nonprofit",
+     "finance",
+     "environment"
+    ]
+   },
+   "source": "graphic-base",
+   "poster": "posters/dataviz.jpg"
+  },
+  {
+   "id": "iso-infographic",
+   "name": "Isometric Infographic",
+   "category": "Information & Keynote",
+   "base": "information",
+   "essence": "A system drawn as an isometric diorama of flat three-tone blocks, thin ink labels and Isotype counts; cutaways show the inside, and the numbers are drawn, not stated.",
+   "uses": [
+    "Infographics",
+    "Process explainers",
+    "Tech and city reports",
+    "Data posts"
+   ],
+   "tags": [
+    "brand",
+    "calm",
+    "city",
+    "data",
+    "editorial",
+    "environment",
+    "explainer",
+    "infographic",
+    "isometric",
+    "place",
+    "playful",
+    "process",
+    "public",
+    "report",
+    "science",
+    "tech",
+    "technical"
+   ],
+   "kind": "design",
+   "family": "information",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "brand"
+    ],
+    "content": [
+     "explainer",
+     "data",
+     "process",
+     "place"
+    ],
+    "tone": [
+     "technical",
+     "calm",
+     "playful"
+    ],
+    "sector": [
+     "tech",
+     "environment",
+     "public",
+     "science"
+    ]
+   },
+   "source": "graphic-base",
+   "poster": "posters/iso-infographic.jpg"
+  },
+  {
+   "id": "cartographic",
+   "name": "Cartographic",
+   "category": "Editorial & Information",
+   "base": "information",
+   "source": "graphic-base",
+   "essence": "A map as the layout: coastlines and borders from Natural Earth, contour lines, a legend, a scale bar, a compass rose, places marked by numbered points; muted land and water with one strong route colour.",
+   "uses": [
+    "Event locations",
+    "Travel",
+    "Reports",
+    "Infographics",
+    "City brands"
+   ],
+   "tags": [
+    "calm",
+    "city",
+    "editorial",
+    "environment",
+    "event",
+    "explainer",
+    "location",
+    "map",
+    "place",
+    "public",
+    "report",
+    "route",
+    "technical",
+    "travel",
+    "urban"
+   ],
+   "kind": "design",
+   "family": "information",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "event"
+    ],
+    "content": [
+     "place",
+     "report",
+     "explainer"
+    ],
+    "tone": [
+     "calm",
+     "technical"
+    ],
+    "sector": [
+     "travel",
+     "environment",
+     "public",
+     "urban"
+    ]
+   },
+   "poster": "posters/cartographic.jpg"
+  },
+  {
+   "id": "botanical-plate",
+   "name": "Botanical Plate",
+   "category": "Editorial & Information",
+   "base": "heritage",
+   "source": "graphic-base",
+   "essence": "A natural-history plate: a specimen (plant, shell, insect, bird) drawn or found in open archives, centred on a warm white ground, numbered figures, a Latin label in small caps, a fine rule frame.",
+   "uses": [
+    "Invitations",
+    "Wellness and food brands",
+    "Education",
+    "Packaging",
+    "Menus"
+   ],
+   "tags": [
+    "botanical",
+    "brand",
+    "calm",
+    "editorial",
+    "elegant",
+    "environment",
+    "event",
+    "explainer",
+    "floral",
+    "flowers",
+    "food",
+    "invitation",
+    "menu",
+    "nature",
+    "product",
+    "science",
+    "spring",
+    "warm",
+    "wellness"
+   ],
+   "kind": "design",
+   "family": "heritage",
+   "fit": {
+    "purpose": [
+     "event",
+     "brand",
+     "editorial"
+    ],
+    "content": [
+     "invitation",
+     "product",
+     "explainer"
+    ],
+    "tone": [
+     "elegant",
+     "calm",
+     "warm"
+    ],
+    "sector": [
+     "environment",
+     "food",
+     "wellness",
+     "science"
+    ]
+   },
+   "poster": "posters/botanical-plate.jpg"
+  },
+  {
+   "id": "duotone-photo",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Campaign",
+    "People",
+    "Story",
+    "Announcement"
+   ],
+   "tags": [
+    "announcement",
+    "bold",
+    "brand",
+    "campaign",
+    "culture",
+    "editorial",
+    "event",
+    "music",
+    "nonprofit",
+    "people",
+    "public",
+    "serious",
+    "story",
+    "warm"
+   ],
+   "name": "Duotone Photography",
+   "essence": "One strong photograph printed in two colours, cropped hard, with bold type in its calm part or on a solid band.",
+   "kind": "design",
+   "family": "photographic",
+   "base": "photographic",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event",
+     "editorial"
+    ],
+    "content": [
+     "campaign",
+     "people",
+     "story",
+     "announcement"
+    ],
+    "tone": [
+     "bold",
+     "serious",
+     "warm"
+    ],
+    "sector": [
+     "nonprofit",
+     "music",
+     "culture",
+     "public"
+    ]
+   },
+   "poster": "posters/duotone-photo.jpg"
+  },
+  {
+   "id": "briefing-board",
+   "name": "Engineering Briefing Board",
+   "category": "Evidence Films",
+   "base": "information",
+   "essence": "One real whiteboard wall: window light on enamel, ghosts of erased marker, cut-out photographs of real things pinned with magnets and tape, marker arrows and handwritten labels linking them.",
+   "uses": [
+    "Strategy and workshop posts",
+    "Process explainers",
+    "Internal reports",
+    "Education"
+   ],
+   "poster": "posters/briefing-board.jpg",
+   "tags": [
+    "explainer",
+    "education",
+    "process",
+    "strategy",
+    "workshop",
+    "handwritten"
+   ],
+   "kind": "design",
+   "family": "information",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "brand"
+    ],
+    "content": [
+     "explainer",
+     "process",
+     "data",
+     "story"
+    ],
+    "tone": [
+     "technical",
+     "urgent",
+     "playful"
+    ],
+    "sector": [
+     "engineering",
+     "education",
+     "public",
+     "urban"
+    ]
+   }
+  },
+  {
+   "id": "engraving",
+   "name": "Copperplate Engraving",
+   "category": "Print & Printmaking",
+   "base": "heritage",
+   "essence": "An intaglio print: swelling burin lines, hatching and cross-hatching that build form, engraved lettering in a frame, an optional hand-laid wash.",
+   "uses": [
+    "Certificates",
+    "Premium labels",
+    "Heritage brands",
+    "Classic invitations"
+   ],
+   "poster": "posters/engraving.jpg",
+   "tags": [
+    "heritage",
+    "elegant",
+    "classic",
+    "banknote",
+    "certificate",
+    "premium",
+    "wine",
+    "whisky",
+    "label",
+    "vintage"
+   ],
+   "kind": "design",
+   "family": "heritage",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "event"
+    ],
+    "content": [
+     "story",
+     "place",
+     "invitation",
+     "quote"
+    ],
+    "tone": [
+     "nostalgic",
+     "elegant",
+     "serious"
+    ],
+    "sector": [
+     "heritage",
+     "culture",
+     "science",
+     "craft"
+    ]
+   }
+  },
+  {
+   "id": "watercolor",
+   "name": "Watercolor Brush",
+   "category": "Hand-drawn & Painting",
+   "base": "heritage",
+   "essence": "A hand-painted journal page: translucent brush strokes with dry-brush flying white on warm cotton paper, handwritten notes beside what is painted, no vector line.",
+   "uses": [
+    "Floral invitations",
+    "Weddings",
+    "Spring and garden events",
+    "Soft brands"
+   ],
+   "poster": "posters/watercolor.jpg",
+   "tags": [
+    "floral",
+    "flowers",
+    "spring",
+    "wedding",
+    "invitation",
+    "elegant",
+    "soft",
+    "nature",
+    "garden",
+    "botanical"
+   ],
+   "kind": "design",
+   "family": "heritage",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "event"
+    ],
+    "content": [
+     "story",
+     "place",
+     "invitation",
+     "explainer"
+    ],
+    "tone": [
+     "calm",
+     "warm",
+     "nostalgic"
+    ],
+    "sector": [
+     "environment",
+     "travel",
+     "education",
+     "family"
+    ]
+   }
+  },
+  {
+   "id": "woodcut",
+   "name": "Woodcut Print",
+   "category": "Print & Printmaking",
+   "base": "print-craft",
+   "essence": "A relief print: a black wood block where light exists only where the knife cut it away; one colour at most, and only for the thing that matters.",
+   "uses": [
+    "Folk and craft",
+    "Book covers",
+    "Bold posters",
+    "Heritage"
+   ],
+   "poster": "posters/woodcut.jpg",
+   "tags": [
+    "folk",
+    "craft",
+    "heritage",
+    "bold",
+    "print",
+    "nature",
+    "rustic",
+    "book",
+    "poster"
+   ],
+   "kind": "design",
+   "family": "print-craft",
+   "fit": {
+    "purpose": [
+     "event",
+     "editorial"
+    ],
+    "content": [
+     "story",
+     "announcement",
+     "quote",
+     "campaign"
+    ],
+    "tone": [
+     "bold",
+     "nostalgic",
+     "serious"
+    ],
+    "sector": [
+     "culture",
+     "heritage",
+     "craft",
+     "activism"
+    ]
+   }
+  },
+  {
+   "id": "technical-manual",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Explainer",
+    "Process",
+    "Product",
+    "Data"
+   ],
+   "tags": [
+    "brand",
+    "calm",
+    "data",
+    "design",
+    "editorial",
+    "education",
+    "engineering",
+    "explainer",
+    "process",
+    "product",
+    "science",
+    "serious",
+    "tech",
+    "technical"
+   ],
+   "name": "Technical Manual",
+   "essence": "A reference manual: exploded isometric line drawings in one blue on near-white, a pixel or monospace headline, a small bookish serif for text, numbered figure labels.",
+   "kind": "design",
+   "family": "information",
+   "base": "information",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "brand"
+    ],
+    "content": [
+     "explainer",
+     "process",
+     "product",
+     "data"
+    ],
+    "tone": [
+     "technical",
+     "calm",
+     "serious"
+    ],
+    "sector": [
+     "tech",
+     "science",
+     "engineering",
+     "education",
+     "design"
+    ]
+   },
+   "poster": "posters/technical-manual.jpg"
+  },
+  {
+   "id": "dark-tech",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Announcement",
+    "Product",
+    "Data",
+    "Campaign"
+   ],
+   "tags": [
+    "announcement",
+    "bold",
+    "brand",
+    "calm",
+    "campaign",
+    "corporate",
+    "data",
+    "design",
+    "event",
+    "finance",
+    "product",
+    "tech",
+    "technical"
+   ],
+   "name": "Dark Tech",
+   "essence": "Night mode: a near-black ground, light grey and white sans type, one soft lime or mint accent word, small data dots and quiet rounded cards.",
+   "kind": "design",
+   "family": "modernist",
+   "base": "modernist",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event"
+    ],
+    "content": [
+     "announcement",
+     "product",
+     "data",
+     "campaign"
+    ],
+    "tone": [
+     "calm",
+     "technical",
+     "bold"
+    ],
+    "sector": [
+     "tech",
+     "finance",
+     "corporate",
+     "design"
+    ]
+   },
+   "poster": "posters/dark-tech.jpg"
+  },
+  {
+   "id": "big-type-index",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Announcement",
+    "Quote",
+    "List",
+    "Campaign"
+   ],
+   "tags": [
+    "announcement",
+    "bold",
+    "brand",
+    "campaign",
+    "corporate",
+    "culture",
+    "design",
+    "editorial",
+    "event",
+    "list",
+    "playful",
+    "quote",
+    "serious",
+    "tech"
+   ],
+   "name": "Big Type Index",
+   "essence": "Type as the event: a huge, tightly set grotesque headline, a numbered entry (35.), a condensed italic line, one hand-drawn circle or scribble, small pill labels.",
+   "kind": "design",
+   "family": "expressive",
+   "base": "expressive",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event",
+     "editorial"
+    ],
+    "content": [
+     "announcement",
+     "quote",
+     "list",
+     "campaign"
+    ],
+    "tone": [
+     "bold",
+     "serious",
+     "playful"
+    ],
+    "sector": [
+     "design",
+     "culture",
+     "corporate",
+     "tech"
+    ]
+   },
+   "poster": "posters/big-type-index.jpg"
+  },
+  {
+   "id": "fashion-campaign",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Campaign",
+    "People",
+    "Product",
+    "Story"
+   ],
+   "tags": [
+    "bold",
+    "brand",
+    "campaign",
+    "cultural",
+    "culture",
+    "elegant",
+    "event",
+    "fashion",
+    "film",
+    "music",
+    "people",
+    "product",
+    "story",
+    "wellness"
+   ],
+   "name": "Fashion Campaign",
+   "essence": "A campaign image: one muted, full-bleed photograph, a giant white word cropped by the bottom edge, one serif sentence set calmly over the top.",
+   "kind": "design",
+   "family": "photographic",
+   "base": "photographic",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event"
+    ],
+    "content": [
+     "campaign",
+     "people",
+     "product",
+     "story"
+    ],
+    "tone": [
+     "elegant",
+     "bold",
+     "cultural"
+    ],
+    "sector": [
+     "fashion",
+     "culture",
+     "music",
+     "film",
+     "wellness"
+    ]
+   },
+   "poster": "posters/fashion-campaign.jpg"
+  },
+  {
+   "id": "specimen-collage",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "List",
+    "Quote",
+    "Story",
+    "Announcement"
+   ],
+   "tags": [
+    "announcement",
+    "craft",
+    "cultural",
+    "culture",
+    "design",
+    "editorial",
+    "education",
+    "event",
+    "list",
+    "playful",
+    "quote",
+    "story",
+    "warm"
+   ],
+   "name": "Specimen Collage",
+   "essence": "A pinboard of type: pastel cards scattered loosely, each with one big word in a different typeface, small monospace captions and a few lines of text.",
+   "kind": "design",
+   "family": "expressive",
+   "base": "expressive",
+   "fit": {
+    "purpose": [
+     "editorial",
+     "event"
+    ],
+    "content": [
+     "list",
+     "quote",
+     "story",
+     "announcement"
+    ],
+    "tone": [
+     "playful",
+     "cultural",
+     "warm"
+    ],
+    "sector": [
+     "design",
+     "culture",
+     "education",
+     "craft"
+    ]
+   },
+   "poster": "posters/specimen-collage.jpg"
+  },
+  {
+   "id": "soft-interface",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "List",
+    "Data",
+    "Announcement",
+    "Product"
+   ],
+   "tags": [
+    "announcement",
+    "brand",
+    "calm",
+    "culture",
+    "data",
+    "design",
+    "editorial",
+    "education",
+    "event",
+    "list",
+    "playful",
+    "product",
+    "tech",
+    "technical"
+   ],
+   "name": "Soft Interface",
+   "essence": "A soft interface: a mid-grey ground, one huge, characterful display word, rows of rounded pills listing items with counts in circles.",
+   "kind": "design",
+   "family": "modernist",
+   "base": "modernist",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event",
+     "editorial"
+    ],
+    "content": [
+     "list",
+     "data",
+     "announcement",
+     "product"
+    ],
+    "tone": [
+     "calm",
+     "technical",
+     "playful"
+    ],
+    "sector": [
+     "design",
+     "tech",
+     "culture",
+     "education"
+    ]
+   },
+   "poster": "posters/soft-interface.jpg"
+  },
+  {
+   "id": "pastel-cards",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "List",
+    "Announcement",
+    "Process",
+    "People",
+    "Product"
+   ],
+   "tags": [
+    "announcement",
+    "brand",
+    "calm",
+    "corporate",
+    "editorial",
+    "education",
+    "list",
+    "nonprofit",
+    "people",
+    "playful",
+    "process",
+    "product",
+    "tech",
+    "warm",
+    "youth"
+   ],
+   "name": "Pastel Cards",
+   "essence": "Friendly and clear: a warm light grey ground, a big plain sans headline, a stack of rounded pastel cards (lilac, rose, mustard, sage) each with a short title and small tags.",
+   "kind": "design",
+   "family": "modernist",
+   "base": "modernist",
+   "fit": {
+    "purpose": [
+     "brand",
+     "editorial"
+    ],
+    "content": [
+     "list",
+     "announcement",
+     "process",
+     "people",
+     "product"
+    ],
+    "tone": [
+     "warm",
+     "playful",
+     "calm"
+    ],
+    "sector": [
+     "tech",
+     "nonprofit",
+     "education",
+     "corporate",
+     "youth"
+    ]
+   },
+   "poster": "posters/pastel-cards.jpg"
+  },
+  {
+   "id": "black-condensed",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Product",
+    "Campaign",
+    "Announcement"
+   ],
+   "tags": [
+    "announcement",
+    "bold",
+    "brand",
+    "campaign",
+    "event",
+    "fashion",
+    "food",
+    "hospitality",
+    "music",
+    "product",
+    "sport",
+    "urgent"
+   ],
+   "name": "Black Condensed",
+   "essence": "A poster in the dark: a black ground, giant condensed sans capitals in cream, one product or object photographed in grey light, tiny interface labels.",
+   "kind": "design",
+   "family": "expressive",
+   "base": "expressive",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event"
+    ],
+    "content": [
+     "product",
+     "campaign",
+     "announcement"
+    ],
+    "tone": [
+     "bold",
+     "urgent"
+    ],
+    "sector": [
+     "food",
+     "music",
+     "sport",
+     "fashion",
+     "hospitality"
+    ]
+   },
+   "poster": "posters/black-condensed.jpg"
+  },
+  {
+   "id": "surreal-serif-collage",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Announcement",
+    "Story",
+    "Campaign",
+    "Quote"
+   ],
+   "tags": [
+    "announcement",
+    "brand",
+    "campaign",
+    "cultural",
+    "culture",
+    "design",
+    "editorial",
+    "education",
+    "elegant",
+    "event",
+    "film",
+    "music",
+    "playful",
+    "quote",
+    "story"
+   ],
+   "name": "Surreal Serif Collage",
+   "essence": "Editorial surprise: a huge, thin, high-contrast display serif across the page, a black and white cut-out photograph placed against it, one red-orange bar or dot.",
+   "kind": "design",
+   "family": "expressive",
+   "base": "expressive",
+   "fit": {
+    "purpose": [
+     "event",
+     "editorial",
+     "brand"
+    ],
+    "content": [
+     "announcement",
+     "story",
+     "campaign",
+     "quote"
+    ],
+    "tone": [
+     "cultural",
+     "elegant",
+     "playful"
+    ],
+    "sector": [
+     "culture",
+     "design",
+     "music",
+     "film",
+     "education"
+    ]
+   },
+   "poster": "posters/surreal-serif-collage.jpg"
+  },
+  {
+   "id": "acid-diagram",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Explainer",
+    "Process",
+    "Data",
+    "Announcement"
+   ],
+   "tags": [
+    "announcement",
+    "bold",
+    "brand",
+    "data",
+    "editorial",
+    "engineering",
+    "environment",
+    "explainer",
+    "finance",
+    "process",
+    "science",
+    "tech",
+    "technical",
+    "urgent"
+   ],
+   "name": "Acid Diagram",
+   "essence": "Bold systems: a deep green ground, heavy condensed capitals in acid lime, a thin-line diagram of boxes and arrows, monospace labels.",
+   "kind": "design",
+   "family": "information",
+   "base": "information",
+   "fit": {
+    "purpose": [
+     "brand",
+     "editorial"
+    ],
+    "content": [
+     "explainer",
+     "process",
+     "data",
+     "announcement"
+    ],
+    "tone": [
+     "bold",
+     "technical",
+     "urgent"
+    ],
+    "sector": [
+     "tech",
+     "environment",
+     "engineering",
+     "finance",
+     "science"
+    ]
+   },
+   "poster": "posters/acid-diagram.jpg"
+  },
+  {
+   "id": "quiet-heritage",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "Story",
+    "Place",
+    "Product",
+    "Report",
+    "Invitation"
+   ],
+   "tags": [
+    "brand",
+    "calm",
+    "craft",
+    "editorial",
+    "elegant",
+    "environment",
+    "event",
+    "fashion",
+    "food",
+    "heritage",
+    "invitation",
+    "place",
+    "product",
+    "report",
+    "story",
+    "travel",
+    "warm"
+   ],
+   "name": "Quiet Heritage",
+   "essence": "Calm craft: an earthy olive or clay ground, an elegant serif headline, a calm documentary nature photograph on one side, small sans details.",
+   "kind": "design",
+   "family": "heritage",
+   "base": "heritage",
+   "fit": {
+    "purpose": [
+     "brand",
+     "editorial",
+     "event"
+    ],
+    "content": [
+     "story",
+     "place",
+     "product",
+     "report",
+     "invitation"
+    ],
+    "tone": [
+     "calm",
+     "warm",
+     "elegant"
+    ],
+    "sector": [
+     "craft",
+     "heritage",
+     "environment",
+     "food",
+     "fashion",
+     "travel"
+    ]
+   },
+   "poster": "posters/quiet-heritage.jpg"
+  },
+  {
+   "id": "photo-index",
+   "source": "graphic-base",
+   "category": "Design",
+   "uses": [
+    "People",
+    "Campaign",
+    "List",
+    "Announcement"
+   ],
+   "tags": [
+    "announcement",
+    "bold",
+    "brand",
+    "campaign",
+    "culture",
+    "event",
+    "fashion",
+    "food",
+    "list",
+    "music",
+    "people",
+    "playful",
+    "warm",
+    "wellness",
+    "youth"
+   ],
+   "name": "Photo Index",
+   "essence": "Bold and human: a saturated close-up photograph fills the page, white sans words laid over it in an index (names with small arrows and labels), dense and lively.",
+   "kind": "design",
+   "family": "photographic",
+   "base": "photographic",
+   "fit": {
+    "purpose": [
+     "brand",
+     "event"
+    ],
+    "content": [
+     "people",
+     "campaign",
+     "list",
+     "announcement"
+    ],
+    "tone": [
+     "bold",
+     "playful",
+     "warm"
+    ],
+    "sector": [
+     "culture",
+     "fashion",
+     "food",
+     "music",
+     "youth",
+     "wellness"
+    ]
+   },
+   "poster": "posters/photo-index.jpg"
+  }
+ ]
+}
