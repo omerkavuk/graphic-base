@@ -8,7 +8,7 @@ html to png, html to pdf, open licence images, google fonts, open source design 
 -->
 
 <p align="center">
-  <img src="assets/banner.png" alt="graphic base: graphic design, written in code. A Claude Code skill." width="100%" />
+  <img src="assets/banner.png" alt="Graphic Base, a Claude Code skill: graphic design that doesn't look AI. A report spread, a social post, a story and a poster in flat colour." width="100%" />
 </p>
 
 <h1 align="center">graphic base</h1>
